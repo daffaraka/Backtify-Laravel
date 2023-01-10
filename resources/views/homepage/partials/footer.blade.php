@@ -10,16 +10,16 @@
                 <h3>Navigation</h3>
                 <hr>
                 <ul>
-                    <li>About Us</li>
-                    <li>Product</li>
+                    <li> <a href="{{route('homepage.about')}}"></a> About Us</li>
+                    <li><a href="{{route('homepage')}}"></a> Product</li>
                 </ul>
             </div>
             <div class="col-lg-4">
                 <h3>Navigation</h3>
                 <hr>
                 <ul>
-                    <li>About Us</li>
-                    <li>Product</li>
+                    <li> <a href="{{route('homepage.about')}}"></a> About Us</li>
+                    <li><a href="{{route('homepage')}}"></a> Product</li>
                 </ul>
             </div>
         </div>
