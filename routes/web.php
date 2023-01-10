@@ -22,19 +22,21 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomepageController::class, 'index'])->name('homepage');
 Route::get('{id}/detail', [HomepageController::class, 'detail'])->name('homepage.detail');
+Route::get('about', function () {
+    return view('homepage.about');
+})->name('homepage.about');
 Route::group(['prefix' => 'user', 'middleware' => ['auth']], function () {
     Route::get('profile', [HomepageController::class, 'profile'])->name('homepage.profile');
     Route::post('profile-update', [HomepageController::class, 'profile_update'])->name('homepage.profile_update');
-    Route::get('cart',[HomepageController::class,'cart'])->name('homepage.cart');
+    Route::get('cart', [HomepageController::class, 'cart'])->name('homepage.cart');
     Route::get('add-to-cart/{product}', [HomepageController::class, 'add_to_cart'])->name('homepage.add-to-cart');
-    Route::get('cart',[HomepageController::class,'cart'])->name('homepage.cart');
-    Route::get('checkout',[HomepageController::class,'checkout'])->name('homepage.checkout');
-    Route::get('transaction',[HomepageController::class,'transaction'])->name('homepage.transaction');
-
+    Route::get('cart', [HomepageController::class, 'cart'])->name('homepage.cart');
+    Route::get('checkout', [HomepageController::class, 'checkout'])->name('homepage.checkout');
+    Route::get('transaction', [HomepageController::class, 'transaction'])->name('homepage.transaction');
 });
 
 
-Route::group(['prefix' => 'dashboard', 'middleware' => ['auth','admin']], function () {
+Route::group(['prefix' => 'dashboard', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', function () {
         return view('layout');
     })->name('dashboard');
